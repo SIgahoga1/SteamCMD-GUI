@@ -1,45 +1,199 @@
-# ⚡ SteamCMD v2 — CS2 Server Control Panel (PySide6)
+# ⚡ SteamCMD-GUI
 
-Современная панель управления CS2 Dedicated Server для Windows.
-Тёмная тема с неоново-зелёными акцентами, модульная архитектура, всё — в одном exe.
+> A modern Windows application for installing, configuring, and managing **Counter-Strike 2 Dedicated Servers** through an intuitive graphical interface.
 
-## Возможности
+🚧 **Current Version:** `v0.1.0` *(Initial Preview)*
 
-- **Первый запуск** — мастер: установить новый сервер / подключить существующий / восстановить из бэкапа
-- **Мастер установки** — SteamCMD + CS2 (app_update 730) + Metamod + CounterStrikeSharp + конфиг из шаблона (Public/Retake/Deathmatch/Bhop/Training/Custom)
-- **Dashboard** — статус ONLINE/OFFLINE, порт/карта/игроки/PID, графики CPU/RAM/игроков, компоненты, последние ошибки
-- **Сервер** — параметры запуска, validate/update, смена карты и exec конфига по RCON
-- **Игроки** — таблица из RCON `status`, ПКМ: kick / ban (навсегда, 1ч/24ч/7д/30д) / mute / slay / копировать SteamID-IP
-- **Консоль** — живой вывод, цвета INFO/WARN/ERROR, история ↑/↓, быстрые команды, фильтры и поиск
-- **Плагины** — список CSS+Metamod, установка из ZIP, вкл/выкл (.dll → .dll.disabled), ошибки из логов
-- **Карты** — скан `maps/*.vpk`, кастомные карты, mapcycle/maplist, changelevel
-- **Конфиги** — редактор с подсветкой, шаблоны, .bak при сохранении
-- **Профили** — несколько серверов, клонирование, экспорт/импорт JSON
-- **Бэкапы** — полный/конфиги/плагины, восстановление, автобэкап по расписанию
-- **Логи** — сервер / app.log / компоненты, фильтры, экспорт, диагностический отчёт
-- **Настройки + Интерфейс** — 4 темы, свой акцентный цвет и фон, шрифт, скругления, компактный режим — применяется без перезапуска
+SteamCMD-GUI is designed to simplify the deployment and administration of CS2 dedicated servers on Windows. It automates the installation process, integrates SteamCMD, and provides a powerful yet user-friendly interface for server management.
 
-Настройки и профили хранятся в `%APPDATA%\SteamCMDv2\` (settings.json, profiles.json, logs, backups).
+---
 
-## Запуск из исходников
+# ✨ Features
 
+## 🚀 Easy Server Setup
+
+* First-launch setup wizard
+* Install a new CS2 dedicated server
+* Connect to an existing server
+* Restore from backups
+
+## 📦 Automatic Installation
+
+* SteamCMD
+* Counter-Strike 2 Dedicated Server (`app_update 730`)
+* Metamod:Source
+* CounterStrikeSharp
+* Ready-to-use server templates:
+
+  * Public
+  * Retake
+  * Deathmatch
+  * Bhop
+  * Training
+  * Custom
+
+## 📊 Live Dashboard
+
+* Online / Offline status
+* Current map
+* Server port
+* Connected players
+* Process ID (PID)
+* CPU & RAM monitoring
+* Component status
+* Recent errors
+
+## 🎮 Server Management
+
+* Launch parameter editor
+* Validate and update server files
+* Execute RCON commands
+* Change maps
+* Run configuration files remotely
+
+## 👥 Player Management
+
+* Live player list via RCON
+* Kick players
+* Ban players
+* Mute players
+* Slay players
+* Copy SteamID and IP addresses
+
+## 💻 Built-in Console
+
+* Real-time server output
+* Colored log messages
+* Command history
+* Quick commands
+* Search and filtering
+
+## 🔌 Plugin Manager
+
+* Metamod support
+* CounterStrikeSharp support
+* ZIP plugin installation
+* Enable or disable plugins
+* Automatic log error detection
+
+## 🗺️ Map Management
+
+* Automatic map scanning
+* Custom map support
+* Mapcycle editor
+* Map list management
+* Changelevel support
+
+## ⚙️ Configuration Editor
+
+* Syntax highlighting
+* Built-in templates
+* Automatic backup creation
+
+## 👤 Server Profiles
+
+* Multiple server profiles
+* Clone profiles
+* Export and import profiles
+
+## 💾 Backup System
+
+* Full backups
+* Configuration backups
+* Plugin backups
+* Scheduled automatic backups
+* Restore functionality
+
+## 📜 Log Viewer
+
+* Server logs
+* Application logs
+* Component logs
+* Search and filtering
+* Export support
+* Diagnostic reports
+
+## 🎨 Customizable Interface
+
+* Multiple themes
+* Custom accent colors
+* Background customization
+* Font settings
+* Rounded UI elements
+* Compact mode
+
+Changes are applied instantly without restarting the application.
+
+---
+
+# 📁 Data Storage
+
+Application settings and profiles are stored in:
+
+```text
+%APPDATA%\SteamCMDv2\
 ```
+
+Including:
+
+* `settings.json`
+* `profiles.json`
+* `logs/`
+* `backups/`
+
+---
+
+# ▶️ Running from Source
+
+```bash
 py -3.12 -m pip install -r requirements.txt
 py -3.12 main.py
 ```
 
-## Сборка exe
+---
 
-Запусти `BUILD_EXE.bat` (или `py -3.12 build.py`) — готовый файл появится в `dist\SteamCMDv2.exe`.
+# 📦 Building the Executable
 
-## Структура
+Run:
 
+```bash
+BUILD_EXE.bat
 ```
-main.py            точка входа
-build.py           сборка PyInstaller onefile
-app/gui/           страницы интерфейса (15 шт.)
-app/core/          логика: steamcmd, сервер, rcon, плагины, карты, конфиги, бэкапы
-app/services/      настройки, логгер, загрузчик, профили, диагностика
-app/models/        dataclass-модели
-app/assets/styles/ темы (QSS-шаблон + палитры)
+
+or
+
+```bash
+py -3.12 build.py
 ```
+
+The compiled executable will be available in:
+
+```text
+dist/SteamCMDv2.exe
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+main.py                  Application entry point
+build.py                 PyInstaller build script
+
+app/
+ ├── gui/                User interface
+ ├── core/               Core server logic
+ ├── services/           Settings and utilities
+ ├── models/             Data models
+ └── assets/styles/      Themes and styles
+```
+
+---
+
+# ⚠️ Version 0.1.0
+
+This is the first public preview release of **SteamCMD-GUI**.
+
+The project is currently under active development. New features, improvements, and bug fixes will be introduced in future releases.
+
+Feedback and suggestions are always welcome.
