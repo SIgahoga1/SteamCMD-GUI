@@ -1,0 +1,300 @@
+/* SteamCMD v2 — основная тема (шаблон с токенами $...$, собирается в variables.build_qss) */
+
+* {
+    font-family: "$FONT_FAMILY$";
+    font-size: $FONT_SIZE$;
+    color: $TEXT_PRIMARY$;
+    outline: none;
+}
+
+QMainWindow, QDialog, QWidget#Root {
+    background-color: $BG_PRIMARY$;
+}
+
+QWidget#Page {
+    background-color: $BG_PRIMARY$;
+}
+
+QScrollArea {
+    background-color: $BG_PRIMARY$;
+    border: none;
+}
+QScrollArea > QWidget > QWidget {
+    background-color: transparent;
+}
+
+/* ---------- Боковое меню ---------- */
+QFrame#Sidebar {
+    background-color: $BG_SECONDARY$;
+    border-right: 1px solid $BORDER$;
+}
+QLabel#SidebarTitle {
+    font-size: 17px;
+    font-weight: bold;
+    color: $ACCENT$;
+    padding: $PAD_BIG$;
+}
+QPushButton#NavButton {
+    background: transparent;
+    border: none;
+    border-radius: $RADIUS_SMALL$;
+    text-align: left;
+    padding: $PAD$ $PAD_BIG$;
+    color: $TEXT_MUTED$;
+}
+QPushButton#NavButton:hover {
+    background-color: $GLASS_BG$;
+    color: $TEXT_PRIMARY$;
+}
+QPushButton#NavButton:checked {
+    background-color: $ACCENT_FAINT$;
+    color: $ACCENT$;
+    border-left: 3px solid $ACCENT$;
+    font-weight: bold;
+}
+
+/* ---------- Карточки ---------- */
+QFrame#Card {
+    background-color: $BG_CARD$;
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS$;
+}
+QFrame#Card:hover {
+    border-color: $ACCENT_DIM$;
+}
+QLabel#CardTitle {
+    color: $TEXT_MUTED$;
+    font-size: $FONT_SIZE_SMALL$;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+QLabel#CardValue {
+    font-size: 19px;
+    font-weight: bold;
+    color: $TEXT_PRIMARY$;
+}
+QLabel#PageTitle {
+    font-size: 21px;
+    font-weight: bold;
+    color: $TEXT_PRIMARY$;
+}
+QLabel#Muted {
+    color: $TEXT_MUTED$;
+}
+QLabel#StatusOnline { color: $SUCCESS$; font-weight: bold; }
+QLabel#StatusOffline { color: $TEXT_MUTED$; font-weight: bold; }
+QLabel#StatusStarting { color: $WARNING$; font-weight: bold; }
+QLabel#StatusError { color: $DANGER$; font-weight: bold; }
+
+/* ---------- Кнопки ---------- */
+QPushButton {
+    background-color: transparent;
+    border: 1px solid $ACCENT_DIM$;
+    border-radius: $RADIUS_SMALL$;
+    color: $ACCENT$;
+    padding: $PAD$ $PAD_BIG$;
+}
+QPushButton:hover {
+    background-color: $GLASS_BG$;
+    border-color: $ACCENT$;
+}
+QPushButton:pressed {
+    background-color: $ACCENT_FAINT$;
+}
+QPushButton:disabled {
+    color: $TEXT_MUTED$;
+    border-color: $BORDER$;
+    background-color: transparent;
+}
+QPushButton#Primary {
+    background-color: $ACCENT$;
+    color: $TEXT_ON_ACCENT$;
+    border: none;
+    font-weight: bold;
+}
+QPushButton#Primary:hover { background-color: $ACCENT_HOVER$; }
+QPushButton#Primary:disabled { background-color: $BORDER$; color: $TEXT_MUTED$; }
+QPushButton#Danger {
+    background-color: transparent;
+    color: $DANGER$;
+    border: 1px solid $DANGER_DIM$;
+}
+QPushButton#Danger:hover {
+    background-color: rgba(255, 65, 65, 0.12);
+    border-color: $DANGER$;
+}
+QPushButton#Warning {
+    color: $WARNING$;
+    border: 1px solid $WARNING$;
+}
+QPushButton#Warning:hover { background-color: rgba(255, 170, 0, 0.12); }
+
+/* ---------- Поля ввода ---------- */
+QLineEdit, QSpinBox, QComboBox, QPlainTextEdit, QTextEdit, QListWidget {
+    background-color: $BG_SECONDARY$;
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+    padding: 6px 8px;
+    selection-background-color: $ACCENT_DIM$;
+    selection-color: $TEXT_ON_ACCENT$;
+}
+QLineEdit:focus, QSpinBox:focus, QComboBox:focus, QPlainTextEdit:focus {
+    border-color: $ACCENT$;
+}
+QComboBox::drop-down { border: none; width: 22px; }
+QComboBox::down-arrow {
+    image: none;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid $ACCENT$;
+    margin-right: 6px;
+}
+QComboBox QAbstractItemView {
+    background-color: $BG_CARD$;
+    border: 1px solid $BORDER$;
+    selection-background-color: $ACCENT_FAINT$;
+    selection-color: $ACCENT$;
+}
+
+QCheckBox { spacing: 8px; }
+QCheckBox::indicator {
+    width: 16px; height: 16px;
+    border: 1px solid $ACCENT_DIM$;
+    border-radius: 4px;
+    background: $BG_SECONDARY$;
+}
+QCheckBox::indicator:checked {
+    background-color: $ACCENT$;
+    border-color: $ACCENT$;
+}
+
+QSlider::groove:horizontal {
+    height: 4px;
+    background: $BORDER$;
+    border-radius: 2px;
+}
+QSlider::handle:horizontal {
+    width: 16px; height: 16px;
+    margin: -6px 0;
+    border-radius: 8px;
+    background: $ACCENT$;
+}
+QSlider::sub-page:horizontal { background: $ACCENT_DIM$; border-radius: 2px; }
+
+/* ---------- Таблицы ---------- */
+QTableWidget, QTableView, QTreeWidget {
+    background-color: $BG_SECONDARY$;
+    alternate-background-color: $BG_CARD$;
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+    gridline-color: $BORDER$;
+}
+QTableWidget::item, QTreeWidget::item { padding: 4px; }
+QTableWidget::item:hover, QTreeWidget::item:hover { background-color: $GLASS_BG$; }
+QTableWidget::item:selected, QTreeWidget::item:selected {
+    background-color: $ACCENT_FAINT$;
+    color: $ACCENT$;
+}
+QHeaderView::section {
+    background-color: $BG_CARD$;
+    color: $ACCENT$;
+    border: none;
+    border-bottom: 1px solid $BORDER$;
+    padding: 6px;
+    font-weight: bold;
+}
+QTableCornerButton::section { background-color: $BG_CARD$; border: none; }
+
+/* ---------- Консоль ---------- */
+QPlainTextEdit#Console, QTextEdit#Console {
+    background-color: $CONSOLE_BG$;
+    color: $CONSOLE_TEXT$;
+    font-family: "Cascadia Mono", "Fira Code", Consolas, monospace;
+    font-size: $FONT_SIZE_SMALL$;
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+}
+
+/* ---------- Вкладки ---------- */
+QTabWidget::pane {
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+    top: -1px;
+}
+QTabBar::tab {
+    background: transparent;
+    color: $TEXT_MUTED$;
+    padding: 7px 14px;
+    border-bottom: 2px solid transparent;
+}
+QTabBar::tab:selected {
+    color: $ACCENT$;
+    border-bottom: 2px solid $ACCENT$;
+    font-weight: bold;
+}
+QTabBar::tab:hover { color: $TEXT_PRIMARY$; }
+
+/* ---------- Прогресс ---------- */
+QProgressBar {
+    background-color: $BG_SECONDARY$;
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+    text-align: center;
+    color: $TEXT_PRIMARY$;
+    height: 18px;
+}
+QProgressBar::chunk {
+    background-color: $ACCENT_DIM$;
+    border-radius: $RADIUS_SMALL$;
+}
+
+/* ---------- Скроллбары ---------- */
+QScrollBar:vertical {
+    background: transparent; width: 10px; margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: $BORDER$; border-radius: 5px; min-height: 30px;
+}
+QScrollBar::handle:vertical:hover { background: $ACCENT_DIM$; }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; width: 0; }
+QScrollBar:horizontal {
+    background: transparent; height: 10px; margin: 0;
+}
+QScrollBar::handle:horizontal {
+    background: $BORDER$; border-radius: 5px; min-width: 30px;
+}
+QScrollBar::handle:horizontal:hover { background: $ACCENT_DIM$; }
+
+/* ---------- Меню/тултипы ---------- */
+QMenu {
+    background-color: $BG_CARD$;
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+    padding: 4px;
+}
+QMenu::item { padding: 6px 24px; border-radius: $RADIUS_SMALL$; }
+QMenu::item:selected { background-color: $ACCENT_FAINT$; color: $ACCENT$; }
+QMenu::separator { height: 1px; background: $BORDER$; margin: 4px 8px; }
+QToolTip {
+    background-color: $BG_CARD$;
+    color: $TEXT_PRIMARY$;
+    border: 1px solid $ACCENT_DIM$;
+    padding: 4px;
+}
+
+QMessageBox { background-color: $BG_SECONDARY$; }
+QSplitter::handle { background: $BORDER$; }
+QStatusBar { background: $BG_SECONDARY$; color: $TEXT_MUTED$; }
+
+QGroupBox {
+    border: 1px solid $BORDER$;
+    border-radius: $RADIUS_SMALL$;
+    margin-top: 12px;
+    padding-top: 8px;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    color: $ACCENT$;
+    font-weight: bold;
+}
